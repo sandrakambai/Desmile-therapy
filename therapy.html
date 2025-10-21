@@ -1,0 +1,632 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Desmile Therapy Services | Mr. Chagusia Dennis Mavundi</title>
+  <meta name="description" content="Desmile Therapy Services — Professional, compassionate counseling and training by Mr. Chagusia Dennis Mavundi. Book individual, group or organizational services." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!--
+    Single-file site (index.html).
+    Instructions:
+    - Replace placeholder images: <img src="placeholder.jpg" ...> with real images or data URIs.
+    - To connect the contact form to a backend, replace the simulated submit handler in the <script> block.
+    - Change doctor/organization name by editing the text "Mr. Chagusia Dennis Mavundi" and "Desmile Therapy Services".
+  -->
+
+  <style>
+    /* ===============================
+       DESIGN TOKENS (calming palette)
+       =============================== */
+    :root{
+      --bg: #F7FAFF;
+      --mint-100: #E6F7F2;
+      --sky-100: #DDEFFB;
+      --teal-200: #BFDCEA;
+      --mint-300: #A7E3C7;
+      --accent: #3BACB6;
+      --text: #0f3b3a;
+      --muted: #586e6b;
+      --card-shadow: 0 8px 24px rgba(15,59,58,0.06);
+      --radius: 12px;
+      --maxw: 1200px;
+    }
+
+    /* ===== Reset & Base ===== */
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;
+      background:linear-gradient(180deg,var(--bg) 0%, #ffffff 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 18px;}
+    h1,h2,h3{margin:0 0 8px}
+    p{margin:0 0 12px;color:var(--muted)}
+
+    /* ===== Header / Nav ===== */
+    header{
+      position:sticky;top:0;z-index:60;
+      background:rgba(255,255,255,0.9);
+      backdrop-filter: blur(6px);
+      border-bottom:1px solid rgba(15,59,58,0.05);
+    }
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;max-width:var(--maxw);margin:0 auto}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:48px;height:48px;border-radius:10px;
+      background:linear-gradient(135deg,var(--mint-100),var(--sky-100));
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);
+      box-shadow:var(--card-shadow);font-size:16px;
+    }
+    .brand .title{font-weight:700;font-size:1rem}
+    nav{display:flex;align-items:center;gap:18px}
+    nav ul{display:flex;gap:14px;list-style:none;margin:0;padding:0}
+    nav a{color:var(--muted);font-weight:600;padding:8px;border-radius:8px;text-decoration:none}
+    nav a:hover, nav a:focus{color:var(--text);box-shadow:0 0 0 4px rgba(59,172,182,0.08)}
+    .cta{background:linear-gradient(90deg,var(--accent),#2f9b96);color:#fff;padding:8px 14px;border-radius:10px;font-weight:700;border:0;cursor:pointer}
+    .hamburger{display:none;background:transparent;border:0;font-size:22px;cursor:pointer}
+
+    /* Mobile nav dropdown */
+    .mobile-menu{display:none;padding:8px 18px;background:var(--mint-100);border-bottom:1px solid rgba(15,59,58,0.04)}
+    .mobile-menu a{display:block;padding:10px 0;color:var(--text)}
+
+    /* ===== Hero ===== */
+    .hero{
+      padding:80px 0 36px;
+      background:linear-gradient(135deg,var(--sky-100),#F7FBF9 50%);
+      border-bottom:1px solid rgba(15,59,58,0.02);
+    }
+    .hero-inner{display:grid;gap:20px;align-items:center;grid-template-columns:1fr;max-width:var(--maxw);margin:0 auto;padding:0 18px}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.8),#ffffff);padding:28px;border-radius:18px;box-shadow:var(--card-shadow)}
+    .tagline{color:var(--accent);font-weight:700;margin-bottom:6px}
+    h1{font-size:1.9rem;line-height:1.05;color:var(--text)}
+    .lead{color:var(--muted);margin-top:6px}
+    .hero-actions{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
+    .muted-small{font-size:0.9rem;color:var(--muted)}
+
+    /* hero image */
+    .hero-media{display:flex;justify-content:center;align-items:center}
+    .hero-media img{width:100%;max-width:420px;border-radius:14px;box-shadow:var(--card-shadow);}
+
+    /* ===== Sections ===== */
+    section{padding:42px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:18px;gap:14px}
+    .section-head h2{font-size:1.25rem;color:var(--text)}
+    .section-sub{color:var(--muted);font-size:0.95rem}
+
+    /* ===== Services ===== */
+    .services-grid{display:grid;gap:16px;grid-template-columns:1fr}
+    .service{
+      display:flex;gap:12px;align-items:flex-start;background:white;padding:14px;border-radius:12px;box-shadow:var(--card-shadow);
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .service:hover{transform:translateY(-6px)}
+    .svc-icon{width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,var(--mint-100),var(--sky-100));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
+    .svc-body h3{margin-bottom:6px;font-size:1rem}
+    .svc-body p{margin:0;color:var(--muted)}
+
+    /* ===== Blog ===== */
+    .blog-grid{display:grid;gap:16px;grid-template-columns:1fr}
+    .post{background:white;border-radius:12px;padding:14px;box-shadow:var(--card-shadow)}
+    .post img{width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:10px}
+
+    /* ===== Testimonials (carousel) ===== */
+    .test-wrap{position:relative;overflow:hidden}
+    .test-track{display:flex;gap:12px;transition:transform .45s cubic-bezier(.2,.9,.2,1)}
+    .test-card{min-width:260px;background:linear-gradient(180deg,#ffffff,#F7FBFB);padding:16px;border-radius:12px;box-shadow:var(--card-shadow)}
+    .stars{color:#f1c40f;font-weight:700;margin-bottom:8px}
+    .test-controls{display:flex;gap:8px;margin-top:12px;justify-content:center}
+    .ctrl-btn{background:transparent;border:1px solid rgba(15,59,58,0.06);padding:8px;border-radius:8px;cursor:pointer}
+
+    /* ===== FAQ ===== */
+    .faq-grid{display:grid;gap:10px}
+    .faq-item{background:white;border-radius:10px;padding:12px;box-shadow:var(--card-shadow)}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+    .faq-a{display:none;margin-top:10px;color:var(--muted)}
+
+    /* ===== Contact ===== */
+    .contact-wrap{display:grid;gap:18px}
+    .contact-grid{display:grid;gap:18px;grid-template-columns:1fr}
+    form{background:white;padding:16px;border-radius:12px;box-shadow:var(--card-shadow);display:flex;flex-direction:column;gap:12px}
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    input, textarea, select{padding:10px;border-radius:8px;border:1px solid rgba(15,59,58,0.08);font-size:1rem}
+    textarea{min-height:120px;resize:vertical}
+    .info-card{background:linear-gradient(180deg,var(--mint-100),white);padding:12px;border-radius:12px;box-shadow:var(--card-shadow)}
+
+    /* map placeholder */
+    .map-placeholder{background:linear-gradient(90deg,#EAF7F4,#F7FBFF);height:180px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+
+    /* ===== Footer ===== */
+    footer{padding:24px 0;background:linear-gradient(90deg,#F7FAFF,#E6F7F2);border-top:1px solid rgba(15,59,58,0.03)}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+
+    /* ===== Utilities ===== */
+    .center{display:flex;align-items:center;justify-content:center}
+    .hidden{display:none}
+
+    /* ===== Animations on scroll (initially hidden) ===== */
+    .reveal{opacity:0;transform:translateY(8px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* ===== Responsive ===== */
+    @media(min-width:820px){
+      .hero-inner{grid-template-columns:1fr 420px}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .blog-grid{grid-template-columns:repeat(3,1fr)}
+      .contact-grid{grid-template-columns:1fr 360px}
+      nav ul{display:flex}
+      .hamburger{display:none}
+      .mobile-menu{display:none}
+      .test-card{min-width:320px}
+    }
+    @media(max-width:819px){
+      nav ul{display:none}
+      .hamburger{display:inline-block}
+      .mobile-menu{display:block}
+      .mobile-menu .mobile-links{display:none}
+      .hero{padding-top:110px}
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header role="banner" aria-label="Top header">
+    <div class="topbar container" role="navigation" aria-label="Main navigation">
+      <div class="brand" aria-hidden="false">
+        <div class="logo" aria-hidden="true">DS</div>
+        <div>
+          <div class="title">Desmile Therapy Services</div>
+          <div style="font-size:0.82rem;color:var(--muted)">Mr. Chagusia Dennis Mavundi</div>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <button class="hamburger" id="hamburger" aria-controls="navList" aria-expanded="false" aria-label="Toggle menu">☰</button>
+        <ul id="navList" role="menubar">
+          <li role="none"><a role="menuitem" href="#home">Home</a></li>
+          <li role="none"><a role="menuitem" href="#about">About</a></li>
+          <li role="none"><a role="menuitem" href="#services">Services</a></li>
+          <li role="none"><a role="menuitem" href="#resources">Resources</a></li>
+          <li role="none"><a role="menuitem" href="#testimonials">Testimonials</a></li>
+          <li role="none"><a role="menuitem" href="#faq">FAQ</a></li>
+          <li role="none"><a role="menuitem" class="cta" href="#contact">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Mobile menu area (revealed when hamburger toggled) -->
+    <div class="mobile-menu container" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-links" id="mobileLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#resources">Resources</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="cta">Book Now</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="home" role="main">
+    <section class="hero" aria-label="Welcome">
+      <div class="hero-inner container">
+        <div class="hero-card reveal" tabindex="0">
+          <div class="tagline">Healing Minds • Restoring Smiles</div>
+          <h1>Welcome to Desmile Therapy Services</h1>
+          <p class="lead">Compassionate, evidence-informed therapy for individuals, families, and organisations. Led by <strong>Mr. Chagusia Dennis Mavundi</strong>.</p>
+          <div class="hero-actions">
+            <a class="cta" href="#contact" role="button" aria-label="Book Now">Book Now</a>
+            <a class="muted-small" href="#services" style="align-self:center">Explore Services →</a>
+          </div>
+          <p class="muted-small" style="margin-top:12px">Safe, confidential, and client-centred care. Replace placeholders with clinic details.</p>
+        </div>
+
+        <div class="hero-media reveal" aria-hidden="true">
+          <!-- African doctor with patient / therapy session -->
+          <img src="New folder/1.jpg" alt="African doctor in therapy session" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="aboutHeading" class="container reveal">
+      <div class="section-head">
+        <h2 id="aboutHeading">About Us</h2>
+        <div class="section-sub">Warm, professional mental health support</div>
+      </div>
+
+      <div style="display:grid;gap:16px;grid-template-columns:1fr;align-items:center;">
+        <div style="display:flex;gap:14px;align-items:center">
+          <img src="New folder/1.jpg" alt="African doctor portrait - Mr. Chagusia Dennis Mavundi" style="width:96px;height:96px;border-radius:999px;object-fit:cover;box-shadow:var(--card-shadow)">
+          <div>
+            <h3 style="font-size:1.05rem">Mr. Chagusia Dennis Mavundi</h3>
+            <p style="margin-top:6px">Lead clinician with experience in counseling, assessments, and organisational wellbeing. He adopts a collaborative, evidence-based approach tailored to each client's needs.</p>
+            <p class="muted-small">Phone: +254 718 199307 • Email: dchagusia.dc@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="muted-small" style="background:linear-gradient(180deg,#fff,#F7FBFB);padding:12px;border-radius:10px">
+          <strong>Our approach:</strong> We blend cognitive-behavioural techniques, trauma-informed practices, and strengths-based coaching to promote lasting wellbeing.
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" aria-labelledby="servicesHeading" class="container reveal">
+      <div class="section-head">
+        <h2 id="servicesHeading">Services</h2>
+        <div class="section-sub">Flexible care options — individual, group, and organisational</div>
+      </div>
+
+      <div class="services-grid" role="list" aria-label="Services list">
+        <article class="service" role="listitem">
+          <div class="svc-icon" aria-hidden="true">IC</div>
+          <div class="svc-body"><h3>Individual Counseling</h3><p>One-to-one therapy tailored to anxiety, depression, trauma and life transitions.</p></div>
+        </article>
+
+        <article class="service" role="listitem">
+          <div class="svc-icon">GC</div>
+          <div class="svc-body"><h3>Group Counseling</h3><p>Peer-based support groups that foster connection and shared recovery.</p></div>
+        </article>
+
+        <article class="service" role="listitem">
+          <div class="svc-icon">AD</div>
+          <div class="svc-body"><h3>Adolescent Counseling</h3><p>Developmentally-sensitive care for teenagers and families.</p></div>
+        </article>
+
+        <article class="service" role="listitem">
+          <div class="svc-icon">SW</div>
+          <div class="svc-body"><h3>Staff Wellness Training</h3><p>Workshops and practical tools to boost workplace wellbeing and productivity.</p></div>
+        </article>
+
+        <article class="service" role="listitem">
+          <div class="svc-icon">PS</div>
+          <div class="svc-body"><h3>Psychosocial Support Training</h3><p>Capacity-building for community workers and volunteers.</p></div>
+        </article>
+
+        <article class="service" role="listitem">
+          <div class="svc-icon">CS</div>
+          <div class="svc-body"><h3>Clinical Supervision</h3><p>Supervision for clinicians to ensure safe, ethical practice and professional development.</p></div>
+        </article>
+
+        <article class="service" role="listitem">
+          <div class="svc-icon">PT</div>
+          <div class="svc-body"><h3>Psychoeducation Talks</h3><p>Public talks on mental health topics to reduce stigma and increase knowledge.</p></div>
+        </article>
+
+        <article class="service" role="listitem">
+          <div class="svc-icon">PA</div>
+          <div class="svc-body"><h3>Psychological Assessments</h3><p>Thorough assessments for diagnosis, educational planning, and treatment guidance.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESOURCES / BLOG -->
+    <section id="resources" aria-labelledby="resourcesHeading" class="container reveal">
+      <div class="section-head">
+        <h2 id="resourcesHeading">Resources & Blog</h2>
+        <div class="section-sub">Practical reads and tools</div>
+      </div>
+
+      <div class="blog-grid" role="list" aria-label="Blog posts">
+        <article class="post" role="listitem">
+          <img src="New folder/1.jpg" alt="African doctor comforting patient - Manage anxiety">
+          <h3>5 Practical Steps to Manage Anxiety</h3>
+          <p class="muted-small">Simple, evidence-based techniques you can start using today to reduce anxious moments.</p>
+          <a href="#" class="muted-small" aria-label="Read more about managing anxiety">Read more →</a>
+        </article>
+
+        <article class="post" role="listitem">
+          <img src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c?auto=format&fit=crop&w=400&q=80" alt="African therapist with adolescent - Support adolescents">
+          <h3>Supporting Adolescents Through Change</h3>
+          <p class="muted-small">Tips for parents and educators to support teens' emotional development and resilience.</p>
+          <a href="#" class="muted-small">Read more →</a>
+        </article>
+
+        <article class="post" role="listitem">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=400&q=80" alt="African healthcare team - Workplace wellness">
+          <h3>Workplace Wellness: Small Steps, Big Impact</h3>
+          <p class="muted-small">How organisations can introduce practical, low-cost wellness measures with meaningful returns.</p>
+          <a href="#" class="muted-small">Read more →</a>
+        </article>
+
+        <article class="post" role="listitem">
+          <img src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=400&q=80" alt="African doctor writing notes - Therapy insights">
+          <h3>Therapy Insights: The Power of Listening</h3>
+          <p class="muted-small">Discover how attentive listening can transform therapy outcomes for clients and clinicians alike.</p>
+          <a href="#" class="muted-small">Read more →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" aria-labelledby="testimonialsHeading" class="container reveal">
+      <div class="section-head">
+        <h2 id="testimonialsHeading">Testimonials</h2>
+        <div class="section-sub">Trusted by clients and organisations</div>
+      </div>
+
+      <div class="test-wrap" aria-live="polite">
+        <div class="test-track" id="testTrack" style="transform:translateX(0);">
+          <div class="test-card" role="article" aria-label="Testimonial 1">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <p>"I found safety and clarity in sessions with Mr. Chagusia. Practical tools and compassion." — <strong>A. N.</strong></p>
+          </div>
+
+          <div class="test-card" role="article" aria-label="Testimonial 2">
+            <div class="stars">★★★★★</div>
+            <p>"Our staff wellness workshop improved team morale and communication significantly." — <strong>HR Manager</strong></p>
+          </div>
+
+          <div class="test-card" role="article" aria-label="Testimonial 3">
+            <div class="stars">★★★★★</div>
+            <p>"Professional assessment with clear next steps — helped our child's school placement." — <strong>Parent</strong></p>
+          </div>
+
+          <div class="test-card" role="article" aria-label="Testimonial 4">
+            <div class="stars">★★★★★</div>
+            <p>"Warm, confidential and effective. Highly recommended." — <strong>L. O.</strong></p>
+          </div>
+        </div>
+
+        <div class="test-controls">
+          <button class="ctrl-btn" id="prevTest" aria-label="Previous testimonial">◀</button>
+          <button class="ctrl-btn" id="nextTest" aria-label="Next testimonial">▶</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faqHeading" class="container reveal">
+      <div class="section-head">
+        <h2 id="faqHeading">Frequently Asked Questions</h2>
+        <div class="section-sub">Answers to common questions</div>
+      </div>
+
+      <div class="faq-grid" role="list">
+        <div class="faq-item" role="listitem">
+          <div class="faq-q" tabindex="0" aria-expanded="false">
+            <strong>How do I book an appointment?</strong>
+            <span class="muted-small">+</span>
+          </div>
+          <div class="faq-a">Use the Book Now form below or call the clinic. We will confirm available times by email or phone.</div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <div class="faq-q" tabindex="0" aria-expanded="false">
+            <strong>Do you offer virtual sessions?</strong>
+            <span class="muted-small">+</span>
+          </div>
+          <div class="faq-a">Yes — we provide secure online therapy via video calls. Please indicate your preference when booking.</div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <div class="faq-q" tabindex="0" aria-expanded="false">
+            <strong>Are sessions confidential?</strong>
+            <span class="muted-small">+</span>
+          </div>
+          <div class="faq-a">Yes. All clinical work follows professional confidentiality standards. Exceptions apply for safety/legal obligations.</div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <div class="faq-q" tabindex="0" aria-expanded="false">
+            <strong>What payment methods are accepted?</strong>
+            <span class="muted-small">+</span>
+          </div>
+          <div class="faq-a">We accept cash and bank transfers. Please inquire about invoicing for organisations and training bookings.</div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <div class="faq-q" tabindex="0" aria-expanded="false">
+            <strong>Do you do assessments for schools?</strong>
+            <span class="muted-small">+</span>
+          </div>
+          <div class="faq-a">Yes — comprehensive psychological assessments for educational planning are available by appointment.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / BOOK -->
+    <section id="contact" aria-labelledby="contactHeading" class="container reveal">
+      <div class="section-head">
+        <h2 id="contactHeading">Contact & Book Now</h2>
+        <div class="section-sub">Request an appointment — we'll respond within 48 hours</div>
+      </div>
+
+      <div class="contact-wrap">
+        <div class="contact-grid">
+          <form id="contactForm" aria-label="Booking form" novalidate>
+            <input type="text" id="name" name="name" placeholder="Full name" required aria-required="true">
+            <input type="email" id="email" name="email" placeholder="Email address" required aria-required="true">
+            <div class="row">
+              <input type="tel" id="phone" name="phone" placeholder="Phone (e.g. +254 7xx xxx xxx)">
+              <input type="date" id="prefDate" name="preferred_date" placeholder="Preferred date">
+            </div>
+            <textarea id="message" name="message" placeholder="Brief message or reason for booking"></textarea>
+
+            <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+              <button type="submit" class="cta" aria-label="Request booking">Request Booking</button>
+              <div class="muted-small">Or call: <strong>+254 718 199307</strong> • Email: <strong>dchagusia.dc@gmail.com</strong></div>
+            </div>
+
+            <div id="formMsg" class="muted-small" role="status" aria-live="polite" style="margin-top:8px"></div>
+          </form>
+
+          <aside class="info-card" aria-labelledby="clinicInfo">
+            <h3 id="clinicInfo" style="margin-bottom:8px">Contact Information</h3>
+            <p class="muted-small"><strong>Desmile Therapy Services</strong></p>
+            <p style="margin-top:8px"><strong>Lead clinician:</strong> Mr. Chagusia Dennis Mavundi</p>
+            <p style="margin-top:8px"><strong>Phone:</strong> +254 718 199307</p>
+            <p style="margin-top:8px"><strong>Email:</strong> dchagusia.dc@gmail.com</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container footer-inner">
+      <div>
+        <strong>Desmile Therapy Services</strong> • <span class="muted-small">Mr. Chagusia Dennis Mavundi</span>
+        <div class="muted-small" style="margin-top:6px">© <span id="year"></span> Desmile Therapy Services. All rights reserved.</div>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <nav aria-label="Footer">
+          <a href="#home" class="muted-small">Home</a> •
+          <a href="#services" class="muted-small">Services</a> •
+          <a href="#contact" class="muted-small">Contact</a>
+        </nav>
+
+        <div style="display:flex;gap:8px">
+          <a href="#" aria-label="Facebook (placeholder)" class="muted-small">Fb</a>
+          <a href="#" aria-label="Instagram (placeholder)" class="muted-small">Ig</a>
+          <a href="#" aria-label="LinkedIn (placeholder)" class="muted-small">In</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ========================
+       INTERACTIONS & BEHAVIOR
+       - Mobile menu toggle
+       - Reveal on scroll (IntersectionObserver)
+       - FAQ accordion (keyboard accessible)
+       - Testimonials carousel
+       - Contact form simulated submit
+       ======================== */
+
+    (function(){
+      // Utility selectors
+      const $ = (s, root=document) => root.querySelector(s);
+      const $$ = (s, root=document) => Array.from(root.querySelectorAll(s));
+
+      // Mobile menu
+      const hamburger = $('#hamburger');
+      const mobileMenu = $('#mobileMenu');
+      const mobileLinks = $('#mobileLinks');
+      if(hamburger){
+        hamburger.addEventListener('click', () => {
+          const open = hamburger.getAttribute('aria-expanded') === 'true';
+          hamburger.setAttribute('aria-expanded', String(!open));
+          mobileMenu.setAttribute('aria-hidden', String(open));
+          mobileLinks.style.display = open ? 'none' : 'block';
+        });
+      }
+
+      // Reveal on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {threshold: 0.12});
+
+      $$('.reveal').forEach(el => observer.observe(el));
+
+      // FAQ accordion
+      $$('.faq-item').forEach(item => {
+        const q = item.querySelector('.faq-q');
+        const a = item.querySelector('.faq-a');
+        const sign = q.querySelector('span') || document.createElement('span');
+        q.appendChild(sign);
+        sign.textContent = '+';
+        q.addEventListener('click', () => {
+          const expanded = q.getAttribute('aria-expanded') === 'true';
+          q.setAttribute('aria-expanded', String(!expanded));
+          sign.textContent = expanded ? '+' : '−';
+          a.style.display = expanded ? 'none' : 'block';
+        });
+        q.addEventListener('keydown', (e) => {
+          if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); q.click(); }
+        });
+      });
+
+      // Testimonials carousel
+      const track = $('#testTrack');
+      const prevBtn = $('#prevTest');
+      const nextBtn = $('#nextTest');
+      let tIndex = 0;
+      const cards = track ? track.children : [];
+      function showTest(i){
+        const total = cards.length;
+        if(total === 0) return;
+        if(i < 0) i = total - 1;
+        if(i >= total) i = 0;
+        tIndex = i;
+        const cardWidth = cards[0].getBoundingClientRect().width + 12; // gap
+        track.style.transform = `translateX(-${i * cardWidth}px)`;
+      }
+      if(prevBtn) prevBtn.addEventListener('click', ()=> showTest(tIndex - 1));
+      if(nextBtn) nextBtn.addEventListener('click', ()=> showTest(tIndex + 1));
+      // auto play
+      let autoT = setInterval(()=> showTest(tIndex + 1), 6000);
+      [prevBtn, nextBtn].forEach(b => {
+        if(b){
+          b.addEventListener('mouseenter', ()=> clearInterval(autoT));
+          b.addEventListener('mouseleave', ()=> autoT = setInterval(()=> showTest(tIndex + 1), 6000));
+        }
+      });
+      window.addEventListener('load', ()=> showTest(0));
+      window.addEventListener('resize', ()=> showTest(tIndex));
+
+      // Contact form simulated submit
+      const form = $('#contactForm');
+      const formMsg = $('#formMsg');
+      if(form){
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = $('#name').value.trim();
+          const email = $('#email').value.trim();
+          if(!name || !email){
+            formMsg.textContent = 'Please enter your name and email to proceed.';
+            formMsg.style.color = '#b00020';
+            return;
+          }
+          // Simulate sending; replace with fetch() to your backend endpoint.
+          formMsg.style.color = 'var(--muted)';
+          formMsg.textContent = 'Submitting request...';
+          setTimeout(() => {
+            formMsg.style.color = 'green';
+            formMsg.textContent = 'Thank you — your booking request was received. We will contact you within 48 hours.';
+            form.reset();
+          }, 900);
+        });
+      }
+
+      // Footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Keyboard focus visibility
+      document.addEventListener('keydown', (e) => { if(e.key === 'Tab') document.documentElement.classList.add('show-focus'); });
+
+      // Close mobile menu when clicking nav links
+      $$('#navList a').forEach(a => {
+        a.addEventListener('click', () => {
+          if(window.innerWidth <= 819){
+            hamburger && hamburger.click();
+          }
+        });
+      });
+      $$('#mobileLinks a').forEach(a => a.addEventListener('click', ()=> hamburger && hamburger.click()));
+
+    })();
+  </script>
+</body>
+</html>
+```
